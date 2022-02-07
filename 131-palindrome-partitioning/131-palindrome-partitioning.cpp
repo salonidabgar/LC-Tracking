@@ -1,6 +1,6 @@
 class Solution {
 public:
-    bool palindromic(string s)
+    bool palindromic(string& s)
     {
         int l =0, r = s.length()-1;
         
