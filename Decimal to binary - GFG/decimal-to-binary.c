@@ -10,17 +10,21 @@
 void toBinary(int N)
 {
     // your code here
-    int bin[32],i=0;
-    while(N!=0)
-    {
-        bin[i++] = N%2;
-        N/=2;
+    // int bin[32],i=0;
+    // while(N!=0)
+    // {
+    //     bin[i++] = N%2;
+    //     N/=2;
         
-    }
-    for(int j=i-1;j>=0;j--)
-    {
-        printf("%d", bin[j]);
-    }
+    // }
+    // for(int j=i-1;j>=0;j--)
+    // {
+    //     printf("%d", bin[j]);
+    // }
+    if(N==0) return;
+    toBinary(N/2);
+    int temp = N%2;
+    printf("%d", temp);
         
 }
 
