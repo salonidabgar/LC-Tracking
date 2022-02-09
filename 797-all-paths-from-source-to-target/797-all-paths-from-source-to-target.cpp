@@ -8,6 +8,7 @@ public:
         int n = g.size();
         currpath.push_back(idx);
         
+        
         // if(idx >= g[idx].size()) return sol;
         if(idx == n-1 ) 
         {
@@ -18,6 +19,7 @@ public:
         {
             
             //currpath.push_back(g[idx][j]);
+            
             path(g,g[idx][j] , currpath);
             
             
