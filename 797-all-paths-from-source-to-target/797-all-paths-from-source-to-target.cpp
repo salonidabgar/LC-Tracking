@@ -1,7 +1,7 @@
 class Solution {
 public:
-    
-    void path(vector<vector<int>> & g, int idx,vector<int> currpath, vector<vector<int>> &sol)
+    vector<vector<int>> sol;
+    void path(vector<vector<int>> & g, int idx,vector<int> currpath)
     {
         
         // cout<<g[idx].size() <<endl;
@@ -20,7 +20,7 @@ public:
             
             //currpath.push_back(g[idx][j]);
             
-            path(g,g[idx][j] , currpath, sol);
+            path(g,g[idx][j] , currpath);
             
             
         }
@@ -29,8 +29,7 @@ public:
     }
     vector<vector<int>> allPathsSourceTarget(vector<vector<int>>& graph) {
         vector<int> currpath;
-        vector<vector<int>> sol;
-        path(graph, 0, currpath, sol);
+        path(graph, 0, currpath);
         return sol;
     }
 };
