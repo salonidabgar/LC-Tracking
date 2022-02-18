@@ -2,8 +2,8 @@ class Solution {
 public:
 
     string removeKdigits(string num, int k) {
-        ios_base::sync_with_stdio(false);
-        cin.tie(NULL);
+        // ios_base::sync_with_stdio(false);
+        // cin.tie(NULL);
         
         int n = num.size();
         stack<char> mystack;
