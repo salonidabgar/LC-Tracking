@@ -11,6 +11,6 @@ public:
         {
             if(i.second > n/2) return i.first;
         }
-        return -1;
+        return 0;
     }
 };
