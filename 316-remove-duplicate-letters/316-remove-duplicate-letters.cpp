@@ -6,7 +6,7 @@ public:
         vector<bool> visited(256, false);
         for (char c : s)
             cand[c]++;
-        string result = "0";
+        string result;
         for (char c : s) {
             cand[c]--;
             if (visited[c]) continue;
@@ -17,7 +17,7 @@ public:
             result += c;
             visited[c] = true;
         }
-        return result.substr(1);
+        return result;
         
     }
 };
