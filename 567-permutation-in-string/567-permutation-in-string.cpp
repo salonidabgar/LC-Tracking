@@ -1,14 +1,5 @@
 class Solution {
 public:
-    void printvector(vector<int> &v)
-    {
-        for(int i : v)
-        {
-            cout<<i<<" ";
-        }
-        cout<<endl;
-    }
-    
     
     bool checkInclusion(string s1, string s2) {
     
@@ -41,19 +32,16 @@ public:
             }
             if(i>=n)
             {
-                // printvector(m2);
-                if(m == m2)
-                {
-                    return true;
-                }
+
+                m2[s2[i-n]-'a']--;
+                m2[s2[i]-'a']++;
                 
-            m2[s2[i-n]-'a']--;
-            m2[s2[i]-'a']++;
                 if(m == m2)
                 {
                     return true;
                 }
             }
+            
             
         }
        return false;
