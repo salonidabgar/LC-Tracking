@@ -1,8 +1,8 @@
 class Solution {
 public:
-    int countBinarySubstrings(string& s) {
-        int a =1, b= 0, ans =0;
-        for(int i=1;i<s.length();i++)
+    int countBinarySubstrings(string s) {
+        int a =1, b= 0, ans =0,i;
+        for(i=1;i<s.length();i++)
         {
             if(s[i] == s[i-1]) a++;
             else
