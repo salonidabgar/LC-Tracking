@@ -19,14 +19,9 @@ public:
         
         for(int i=0;i<n;i++)
         {
-            
-            // if(nums[i]<st.top().first) //and v[i]==-1)
-            // {
-            //     v[i] = st.top().first;
-            // }
-            if(nums[i] > st.top().first)
+            if(!st.empty() && nums[i] > st.top().first)
             {
-                while(st.top().first < nums[i])
+                while(!st.empty() && st.top().first < nums[i])
                 {
                     v[st.top().second] = nums[i];
                     st.pop();
