@@ -19,6 +19,9 @@ public:
         
         for(int i=0;i<n;i++)
         {
+            if(st.empty())
+                break;
+            
             if(!st.empty() && nums[i] > st.top().first)
             {
                 while(!st.empty() && st.top().first < nums[i])
