@@ -22,7 +22,7 @@ public:
             if(st.empty())
                 break;
             
-            if(!st.empty() && nums[i] > st.top().first)
+            if(nums[i] > st.top().first)
             {
                 while(!st.empty() && st.top().first < nums[i])
                 {
