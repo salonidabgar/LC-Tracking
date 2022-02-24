@@ -73,12 +73,10 @@ public:
             slow = slow->next;
             fast = fast->next->next;
         }
-        cout<< slow->val<<endl;
+        // cout<< slow->val<<endl;
         fast = slow->next;
         slow->next = NULL;
-        ListNode* lsh = sortList(head);
-        ListNode* rsh = sortList(fast);
-        return merge(lsh, rsh);
+        return merge(sortList(head),sortList(fast) );
         
     }
 };
