@@ -14,8 +14,8 @@ public:
             while(x!=0)
             {
 				// we have to count 1's in binary representation of i, therefore % 2
-                sum += x%2;
-                x = x/2;
+                sum+=(x&1);
+                x>>=1;
             }
 			// add sum to ans vector
             ans.push_back(sum);
