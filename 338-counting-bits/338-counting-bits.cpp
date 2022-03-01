@@ -9,13 +9,13 @@ public:
         {
 			// sum is initialised as 0
             int sum = 0;
-            int num = i;
+            int x =i;
 			// while num not equals zero
-            while(num != 0)
+            while(x!=0)
             {
 				// we have to count 1's in binary representation of i, therefore % 2
-                sum += num%2;
-                num = num/2;
+                sum += x%2;
+                x = x/2;
             }
 			// add sum to ans vector
             ans.push_back(sum);
