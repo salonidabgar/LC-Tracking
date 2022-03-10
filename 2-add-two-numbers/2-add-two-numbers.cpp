@@ -14,21 +14,8 @@ public:
         ListNode dummy(-1);
         ListNode*l3 = &dummy;
         
-        int sum=0,carry=0;
-        while(l1 and l2)
-        {
-            int temp = (l1?l1->val:0) + (l2?l2->val:0);
-            // cout<<temp<<endl;
-            sum = (carry+ temp)%10;
-            // cout<<sum<<endl;
-            carry = (carry+ temp)/10;
-            l3->next = new ListNode(sum);
-            l3 = l3->next;
-            
-            if(l1)l1 = l1->next;
-            if(l2)l2 = l2->next;
-  
-        }
+        int carry=0;
+       
         while(l1 or l2 or carry)
         {
 
