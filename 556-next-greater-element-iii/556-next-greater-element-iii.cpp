@@ -1,29 +1,28 @@
 class Solution {
 public:
     int nextGreaterElement(int n) {
-        vector<int> v;
-        int b = n;
-        while(n)
+       //next permutation of n
+           string s = to_string(n);
+           int len = s.length();
+        int i,j;
+        i = len-2;
+        while(i>=0 and s[i]>=s[i+1]) i--;
+        if(i==-1) return -1;
+        else
         {
-            v.push_back(n%10);
-            n/=10;
-        }
-        reverse(v.begin(), v.end());
-        
-        next_permutation(v.begin(), v.end());
-        
-        for(int i =0;i<v.size();i++)
-        {
-            if(n > INT_MAX/10  || (n==INT_MAX/10 && v[i] > 7))
+            for(int j = len-1;j>i;j--)
             {
-                return -1;
+                if(s[j]>s[i])
+                {
+                    swap(s[i], s[j]);
+                    break;
+                }
             }
-            n = n*10 + v[i];
+            reverse(s.begin()+i+1, s.end());
         }
-        if(n <= b)
-        {
-            return -1;
-        }
-        return n;
+        auto num = stoll(s);
+        if(num > INT_MAX ) return -1;
+        return num;
+
     }
 };
