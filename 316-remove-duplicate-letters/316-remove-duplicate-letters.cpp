@@ -3,7 +3,7 @@ public:
     
     string removeDuplicateLetters(string s) {
         vector<bool> vis(256,false);
-        unordered_map<char, int> mp;
+        unordered_map<char,int> mp;
         for(char & c:s)
         {
             mp[c]++;
