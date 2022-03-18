@@ -2,22 +2,28 @@ class Solution {
 public:
     
     string removeDuplicateLetters(string s) {
-        unordered_map<char, int> cand ;
-        vector<bool> visited(256, false);
-        for (char c : s)
-            cand[c]++;
-        string result;
-        for (char c : s) {
-            cand[c]--;
-            if (visited[c]) continue;
-            while (c < result.back() && cand[result.back()]) {
-                visited[result.back()] = false;
-                result.pop_back();
-            }
-            result += c;
-            visited[c] = true;
+        vector<bool> vis(256,false);
+        unordered_map<char, int> mp;
+        for(char & c:s)
+        {
+            mp[c]++;
         }
-        return result;
+        string res;
+        for(int i=0;i<s.length();i++)
+        {
+            mp[s[i]]--;
+            if(vis[s[i]]) continue;
+            while(s[i]<res.back() and mp[res.back()])
+            {
+                vis[res.back()] = false;
+                res.pop_back();
+            }
+            res+=s[i];
+            vis[s[i]] = true;
+        }
+           return res;
+                
+        }
         
-    }
+    
 };
