@@ -4,7 +4,7 @@ public:
         vector<vector<int>> sol;
         sort(intervals.begin(), intervals.end());
         vector<int> ans ={intervals[0][0], intervals[0][1]};
-        int n = intervals.size(), m = intervals[0].size();
+        int n = intervals.size();
         if(n==1) 
         {
             sol.push_back(ans);
