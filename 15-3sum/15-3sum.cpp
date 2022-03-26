@@ -4,7 +4,7 @@ public:
         int n = nums.size();
         vector<vector<int>> sol;
         sort(nums.begin(), nums.end());
-        // nums.erase(unique(res.begin(), res.end(), res.end()));
+        // nums.erase(unique(nums.begin(), nums.end()), nums.end());
     
         for(int i=0;i<n;i++)
         {
