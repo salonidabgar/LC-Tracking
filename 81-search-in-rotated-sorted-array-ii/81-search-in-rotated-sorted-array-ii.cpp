@@ -6,11 +6,9 @@ public:
         
         while(left<right)
         {
-            int mid = left+(right-left)/2;
+            int mid = (left+right)>>1;
             
             if(nums[mid]==target) return true;
-            // if(nums[left+1] == nums[left] and left<n-1) left++;
-            // if(nums[right-1] == nums[right] and right>=0) right--;
             
             else if(nums[left]<nums[mid])
             {
