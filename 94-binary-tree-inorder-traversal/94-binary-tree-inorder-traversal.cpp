@@ -12,27 +12,62 @@
 class Solution {
 public:
     vector<int> inorderTraversal(TreeNode* root) {
-        vector<int> sol;
-        if(root == NULL) return sol;
-        stack<TreeNode*> st;
+//         vector<int> sol;
+//         if(root == NULL) return sol;
+//         stack<TreeNode*> st;
         
-        // st.push(root);
-        while(root or !st.empty())
+//         while(root or !st.empty())
+//         {
+//             if(root)
+//             {
+//                 st.push(root);
+//                 root = root->left;
+//             }
+//             else
+//             {
+//                 root = st.top();
+//                 st.pop();
+//                 sol.push_back(root->val);
+//                 root = root->right; 
+        
+//             }
+//         }
+//         return sol;
+        vector<int> pre,in,post;
+        stack<pair<TreeNode*,int>> st;
+        if(!root) return pre;
+        st.push({root,1});
+        while(!st.empty())
         {
-            if(root)
+            auto it = st.top();
+            st.pop();
+            if(it.second == 1)
             {
-                st.push(root);
-                root = root->left;
+                pre.push_back(it.first->val);
+                it.second++;
+                st.push(it);
+                if(it.first->left)
+                {
+                    st.push({it.first->left,1});
+                }
+                
+            }
+            else if(it.second == 2)
+            {
+                in.push_back(it.first->val);
+                st.push({root,it.second+1});
+                if(it.first->right)
+                {
+                    st.push({it.first->right,1});
+                }
+                
             }
             else
             {
-                root = st.top();
-                st.pop();
-                sol.push_back(root->val);
-                root = root->right; 
-        
+                post.push_back(it.first->val);
+                
             }
         }
-        return sol;
+        return in;
     }
 };
