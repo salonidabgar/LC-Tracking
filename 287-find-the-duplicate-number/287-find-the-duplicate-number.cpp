@@ -1,27 +1,25 @@
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
-        int low = 1, high = nums.size() - 1, cnt;
-        
-        while(low <=  high)
+        int n = nums.size();
+        int fast =  nums[nums[0]];
+        int slow =  nums[0];
+        int entry = 0;
+        if(n>1)
+        { 
+        while(fast!=slow)
         {
-            int mid = low + (high - low) / 2;
-            cnt = 0;
-            // cnt number less than equal to mid
-            for(int n : nums)
-            {
-                if(n <= mid)
-                    ++cnt;
-            }
-            // binary search on left
-            if(cnt <= mid)
-                low = mid + 1;
-            else
-            // binary search on right
-                high = mid - 1;
-            
+            slow = nums[slow];
+            fast = nums[nums[fast]];
         }
-        return low;
+        while(slow!=entry)
+        {
+            slow = nums[slow];
+            entry = nums[entry];
+        }
+        return slow;
+        }
+        return -1;
         
     }
 };
