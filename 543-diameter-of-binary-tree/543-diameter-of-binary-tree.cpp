@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    int findmax(TreeNode* root, int & maxx)
+    int findmax(TreeNode* & root, int & maxx)
     {
         if(root == NULL) return 0;
         
