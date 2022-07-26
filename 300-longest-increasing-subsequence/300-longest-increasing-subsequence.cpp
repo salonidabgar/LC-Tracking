@@ -1,25 +1,19 @@
 class Solution {
 public:
-
-    int lengthOfLIS(vector<int>& nums) {
-       vector<int> s; //stores the longest inc subsequence
-       int n = nums.size();
-        s.push_back(nums[0]);
-     
-        for(int i=1;i<n;i++)
+    int lengthOfLIS(vector<int>& v) {
+        vector<int> sol;
+        sol.push_back(v[0]);
+        for(int i=1;i<v.size();i++)
         {
-            if(s.back()<nums[i])
-            {
-                s.push_back(nums[i]);
-            }
+            if(sol.back() < v[i]) sol.push_back(v[i]);
             else
             {
-                int ind = lower_bound(s.begin(), s.end(), nums[i]) - s.begin();
-                s[ind] = nums[i];
+                int idx = lower_bound(sol.begin(), sol.end(), v[i]) - sol.begin();
+                sol[idx] = v[i];
             }
         }
-        return s.size();
         
-        
+            return sol.size();
+
     }
 };
