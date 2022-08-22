@@ -11,6 +11,10 @@ public:
             else if(j == 0) i++;
             else j = dp[j];
         }
+        // for(auto i: dp)
+        // {
+        //     cout << i<<" ";
+        // }
         return dp[n] and (dp[n] %(n - dp[n]) == 0);
     }
 };
