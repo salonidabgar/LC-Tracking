@@ -1,54 +1,28 @@
 class Solution {
 public:
-    int BinarySearch(vector<int> & nums, int target, int lo, int hi)
-    {
-        while(lo<=hi)
-        {
-            int mid = lo + (hi-lo)/2;
-            if(nums[mid] == target)
-            {
-                // cout<< mid<< endl;
-                return mid;
-            }
-            else if(nums[mid] > target)
-            {
-                hi = mid-1;
-            }
-            else
-            {
-                lo = mid+1;
-            }
+    int search(vector<int> &A,  int target, int n = 0) {
+        n = A.size();
+        int lo=0,hi=n-1;
+        // int n = A.size();
+        // find the index of the smallest value using binary search.
+        // Loop will terminate since mid < hi, and lo or hi will shrink by at least 1.
+        // Proof by contradiction that mid < hi: if mid==hi, then lo==hi and loop would have been terminated.
+        while(lo<hi){
+            int mid=(lo+hi)/2;
+            if(A[mid]>A[hi]) lo=mid+1;
+            else hi=mid;
+        }
+        // lo==hi is the index of the smallest value and also the number of places rotated.
+        int rot=lo;
+        lo=0;hi=n-1;
+        // The usual binary search and accounting for rotation.
+        while(lo<=hi){
+            int mid=(lo+hi)/2;
+            int realmid=(mid+rot)%n;
+            if(A[realmid]==target)return realmid;
+            if(A[realmid]<target)lo=mid+1;
+            else hi=mid-1;
         }
         return -1;
-    }
-    int search(vector<int>& nums, int target) {
-        int n = nums.size();
-        int l=0, r=n-1,pivot=0;
-        while(l<r)
-        {
-            int mid = l+(r-l)/2;
-            // if(nums[mid] == nums[r])
-            // {
-            //     pivot = mid;
-            //     break;
-            // }
-            if(nums[mid] < nums[r])
-            {
-                r = mid;
-            }
-            else
-            {
-                l = mid+1;
-            }
-        }
-        pivot = l;
-        // cout << pivot<< endl;
-        if(target > nums[pivot] and target > nums[n-1])
-        {
-            return BinarySearch(nums, target, 0, pivot-1);
-        }
-        return BinarySearch(nums, target, pivot, n-1);
-        // return -1;
-            
     }
 };
